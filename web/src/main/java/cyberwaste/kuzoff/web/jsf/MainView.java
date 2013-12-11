@@ -7,10 +7,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import cyberwaste.kuzoff.core.DatabaseHandler;
-import cyberwaste.kuzoff.core.domain.Row;
-import cyberwaste.kuzoff.core.domain.Table;
-import cyberwaste.kuzoff.core.implementation.DatabaseManagerImpl;
+import dmytro.kuzenko.core.DatabaseHandler;
+import dmytro.kuzenko.core.implementation.DatabaseManagerImpl;
+import dmytro.kuzenko.core.types.Row;
+import dmytro.kuzenko.core.types.Table;
 
 public class MainView {
 

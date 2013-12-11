@@ -10,9 +10,9 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
-import cyberwaste.kuzoff.core.DatabaseHandler;
-import cyberwaste.kuzoff.core.domain.Row;
-import cyberwaste.kuzoff.core.domain.Table;
+import dmytro.kuzenko.core.DatabaseHandler;
+import dmytro.kuzenko.core.types.Row;
+import dmytro.kuzenko.core.types.Table;
 
 public class WebServiceDatabaseManager implements DatabaseHandler {
     

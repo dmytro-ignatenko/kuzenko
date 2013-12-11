@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import cyberwaste.kuzoff.core.DatabaseHandler;
-import cyberwaste.kuzoff.core.domain.Row;
-import cyberwaste.kuzoff.core.domain.Table;
+import dmytro.kuzenko.core.DatabaseHandler;
+import dmytro.kuzenko.core.types.Row;
+import dmytro.kuzenko.core.types.Table;
 
 @Controller
 @RequestMapping("/api")

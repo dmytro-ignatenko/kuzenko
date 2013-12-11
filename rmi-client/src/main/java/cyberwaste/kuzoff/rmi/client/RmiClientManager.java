@@ -5,7 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.martiansoftware.jsap.JSAPException;
 
-import cyberwaste.kuzoff.shell.ShellManager;
+import dmytro.kuzenko.shell.ShellManager;
 
 public class RmiClientManager extends ShellManager {
     

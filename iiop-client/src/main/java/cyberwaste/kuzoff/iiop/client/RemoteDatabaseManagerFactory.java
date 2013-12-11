@@ -6,7 +6,7 @@ import javax.rmi.PortableRemoteObject;
 
 import org.springframework.util.Assert;
 
-import cyberwaste.kuzoff.core.DatabaseHandler;
+import dmytro.kuzenko.core.DatabaseHandler;
 
 public class RemoteDatabaseManagerFactory {
     

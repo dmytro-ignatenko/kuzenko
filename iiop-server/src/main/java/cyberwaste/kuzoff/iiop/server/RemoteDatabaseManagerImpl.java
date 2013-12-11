@@ -7,9 +7,9 @@ import java.util.List;
 
 import javax.rmi.PortableRemoteObject;
 
-import cyberwaste.kuzoff.core.DatabaseHandler;
-import cyberwaste.kuzoff.core.domain.Row;
-import cyberwaste.kuzoff.core.domain.Table;
+import dmytro.kuzenko.core.DatabaseHandler;
+import dmytro.kuzenko.core.types.Row;
+import dmytro.kuzenko.core.types.Table;
 
 public class RemoteDatabaseManagerImpl extends PortableRemoteObject implements DatabaseHandler {
     

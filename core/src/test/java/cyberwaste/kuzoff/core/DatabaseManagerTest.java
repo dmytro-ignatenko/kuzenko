@@ -14,10 +14,10 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import cyberwaste.kuzoff.core.domain.Row;
-import cyberwaste.kuzoff.core.domain.Table;
-import cyberwaste.kuzoff.core.domain.Type;
-import cyberwaste.kuzoff.core.implementation.DatabaseManagerImpl;
+import dmytro.kuzenko.core.implementation.DatabaseManagerImpl;
+import dmytro.kuzenko.core.types.Row;
+import dmytro.kuzenko.core.types.Table;
+import dmytro.kuzenko.core.types.Type;
 
 @Ignore
 public class DatabaseManagerTest {
