@@ -1,0 +1,50 @@
+version = '0.0'
+
+apply plugin: 'java'
+sourceCompatibility = 1.6
+
+tasks.withType(Compile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    compile project(':core')
+    
+    compile 'org.springframework:spring-web:3.2.3.RELEASE'
+    compile 'javax:javaee-web-api:6.0'
+    
+    compile 'com.sun.faces:jsf-api:2.1.12'
+    compile 'com.sun.faces:jsf-impl:2.1.12'
+    compile 'org.primefaces:primefaces:4.0'
+}
+
+apply plugin: 'war'
+
+war {
+    archiveName 'kuzoff.war'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://repository.primefaces.org"
+    }
+}
+
+task deploy(type:Exec) {
+    if (System.properties['os.name'].toLowerCase().contains('windows')) {
+        commandLine 'cmd', '/c', 'src\\build\\bat\\deploy.bat'
+    } else {
+        commandLine 'sh', 'src/build/shell/deploy.sh'
+    }
+}
+deploy.dependsOn build
+
+task start(type:Exec) {
+    if (System.properties['os.name'].toLowerCase().contains('windows')) {
+        commandLine 'cmd', '/c', 'src\\build\\bat\\start.bat'
+    } else {
+        commandLine 'sh', 'src/build/shell/start.sh'
+    }
+}
+start.dependsOn deploy

@@ -1,0 +1,16 @@
+# Eclipse #
+.settings/
+.classpath
+.project
+bin/
+
+# Gradle #
+.gradle/
+build/
+
+# Runtime #
+iiop-server/orb.db
+
+# Build scritps #
+!webservice-server/src/build/
+!web/src/build/

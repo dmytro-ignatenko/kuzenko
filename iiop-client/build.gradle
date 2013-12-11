@@ -1,0 +1,41 @@
+version = '0.0'
+
+apply plugin: 'java'
+sourceCompatibility = 1.6
+
+tasks.withType(Compile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    compile project(':core')
+    compile project(':shell')
+    
+    compile 'org.springframework:spring-context:3.2.4.RELEASE'
+}
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin:'application'
+startScripts {
+    mainClassName = "cyberwaste.kuzoff.iiop.client.IIOPClientManager"
+    classpath.add(files { file("lib/rmic.jar") })
+    
+    doLast {
+        unixScript.text = unixScript.text.replace('DEFAULT_JVM_OPTS=""', 'DEFAULT_JVM_OPTS="-Djava.naming.factory.initial=com.sun.jndi.cosnaming.CNCtxFactory -Djava.naming.provider.url=iiop://localhost:1060"')
+    }
+}
+
+task rmiJar(type:Exec, dependsOn: ":iiop-server:rmiJar") {
+    commandLine 'cp', '../iiop-server/build/install/iiop-server/lib/rmic.jar', "$buildDir/install/$project.name/lib"
+}
+rmiJar.dependsOn installApp
+
+task installRmiApp
+installRmiApp.dependsOn rmiJar
+
+task orbd(type:Exec) {
+    commandLine 'sh', 'src/main/scripts/orbd', '&'
+}
