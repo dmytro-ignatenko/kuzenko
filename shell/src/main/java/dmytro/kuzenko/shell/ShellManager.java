@@ -40,7 +40,7 @@ public class ShellManager extends OperationHandler {
     private final JSAP jsap;
     private final BufferedReader reader;
     
-    private DatabaseHandler databaseManager;
+    private DatabaseHandler databaseHandler;
     
     private boolean hasMoreCommands;
     
@@ -82,8 +82,8 @@ public class ShellManager extends OperationHandler {
             Map<String, String> parameters = parseParameters(result.getString(PARAMETERS_OPTION, ""));
             
             return OperationBuilder
-                    .command(commandName)
-                    .usingDatabaseManager(databaseManager)
+                    .operation(commandName)
+                    .usingDatabaseManager(databaseHandler)
                     .forDatabase(databaseFolder)
                     .withParameters(parameters)
                     .build();
@@ -119,7 +119,7 @@ public class ShellManager extends OperationHandler {
         return result;
     }
     
-    public void setDatabaseManager(DatabaseHandler databaseManager) {
-        this.databaseManager = databaseManager;
+    public void setDatabaseHandler(DatabaseHandler databaseHandler) {
+        this.databaseHandler = databaseHandler;
     }
 }

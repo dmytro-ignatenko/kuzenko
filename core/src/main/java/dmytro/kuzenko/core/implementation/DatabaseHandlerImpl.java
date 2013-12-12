@@ -13,6 +13,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
@@ -23,19 +24,19 @@ import dmytro.kuzenko.core.types.Table;
 import dmytro.kuzenko.core.types.Type;
 import dmytro.kuzenko.core.types.Value;
 
-public class DatabaseManagerImpl implements DatabaseHandler {
+public class DatabaseHandlerImpl implements DatabaseHandler {
     
     private static final String METADATA_FILE_NAME = "metadata";
     private static final String TABLE_FILE_NAME = "table";
     private static final String TABLE_FILE_NAME_TEMP = "table_temp";
     
-    public static final File KUZOFF_HOME = new File(System.getProperty("user.home"), "kuzoff");
+    public static final File KUZENKO_HOME = new File(System.getProperty("user.home"), "kuzenko");
     
     private File databaseFolder;
     
     @Override
     public void forDatabaseFolder(String databaseFolderName) {
-        this.databaseFolder = new File(KUZOFF_HOME, databaseFolderName);
+        this.databaseFolder = new File(KUZENKO_HOME, databaseFolderName);
         initDatabaseFolder(this.databaseFolder);
     }
 
@@ -336,7 +337,7 @@ public class DatabaseManagerImpl implements DatabaseHandler {
         List<Row> tableData1 = loadTableData(tableName1);
         List<Row> tableData2 = loadTableData(tableName2);
         
-        Set<Row> newRows = new HashSet<Row>();
+        Set<Row> newRows = new TreeSet<Row>();
         for(Row firstRow : tableData1) {
         	for(Row secondRow : tableData2) {
         		Row newRow = new Row();

@@ -10,30 +10,30 @@ import dmytro.kuzenko.core.DatabaseHandler;
 
 public class OperationBuilder {
     
-    private final String commandName;
+    private final String operationName;
     
     private DatabaseHandler databaseManager;
     private Map<String, String> parameters;
-    private Map<String, Class<?>> commands;
+    private Map<String, Class<?>> operations;
 
-    public static OperationBuilder command(String commandName) {
-        return new OperationBuilder(commandName);
+    public static OperationBuilder operation(String operationName) {
+        return new OperationBuilder(operationName);
     }
 
-    private OperationBuilder(String commandName) {
-        this.commandName = commandName;
-        commands = new HashMap<String, Class<?>>();
-        commands.put("lstbl", OperationListTables.class);
-        commands.put("mktbl", OperationMakeTable.class);
-        commands.put("rmtbl", OperationRemoveTable.class);
-        commands.put("addrw", OperationAddRow.class);
-        commands.put("rmvrw", OperationRemoveRow.class);
-        commands.put("drpdb", OperationDropDatabase.class);
-        commands.put("swtbl", OperationShowTable.class);
-        commands.put("untbl", OperationUnionTables.class);
-        commands.put("dftbl", OperationDifferenceTables.class);
-        commands.put("uqtbl", OperationUniqueTable.class);
-        commands.put("dctbl", OperationDescartTables.class);
+    private OperationBuilder(String operationName) {
+        this.operationName = operationName;
+        operations = new HashMap<String, Class<?>>();
+        operations.put("lstbl", OperationListTables.class);
+        operations.put("mktbl", OperationMakeTable.class);
+        operations.put("rmtbl", OperationRemoveTable.class);
+        operations.put("addrw", OperationAddRow.class);
+        operations.put("rmvrw", OperationRemoveRow.class);
+        operations.put("drpdb", OperationDropDatabase.class);
+        operations.put("swtbl", OperationShowTable.class);
+        operations.put("untbl", OperationUnionTables.class);
+        operations.put("dftbl", OperationDifferenceTables.class);
+        operations.put("uqtbl", OperationUniqueTable.class);
+        operations.put("dctbl", OperationDescartTables.class);
     }
     
     public OperationBuilder usingDatabaseManager(DatabaseHandler databaseManager) {
@@ -56,8 +56,8 @@ public class OperationBuilder {
             throw new RuntimeException("Database folder is not specified");
         }
         
-        if(commands.containsKey(commandName)){
-            Class<?> commandClass = commands.get(commandName);
+        if(operations.containsKey(operationName)){
+            Class<?> commandClass = operations.get(operationName);
             Operation command = (Operation) commandClass.newInstance();
             command.setState(parameters, databaseManager);
             return command;

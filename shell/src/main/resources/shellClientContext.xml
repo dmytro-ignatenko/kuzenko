@@ -7,10 +7,10 @@
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
         
-    <bean name="databaseManager" class="dmytro.kuzenko.core.implementation.DatabaseManagerImpl" />
+    <bean name="databaseHandler" class="dmytro.kuzenko.core.implementation.DatabaseHandlerImpl" />
         
     <bean name="shellClient" class="dmytro.kuzenko.shell.ShellManager">
-        <property name="databaseManager" ref="databaseManager" />
+        <property name="databaseHandler" ref="databaseHandler" />
     </bean>
     
 </beans>
