@@ -69,21 +69,6 @@ public class RemoteDatabaseManagerImpl extends PortableRemoteObject implements D
         return delegate.loadTableData(tableName);
     }
 
-    @Override
-    public Table unionTable(String tableName1, String tableName2) throws Exception {
-        return delegate.unionTable(tableName1, tableName2);
-    }
-
-    @Override
-    public Table differenceTable(String tableName1, String tableName2) throws Exception {
-        return delegate.differenceTable(tableName1, tableName2);
-    }
-
-    @Override
-    public Table uniqueTable(String tableName) throws Exception {
-        return delegate.uniqueTable(tableName);
-    }
-    
     public void setDelegate(DatabaseHandler delegate) {
         this.delegate = delegate;
     }

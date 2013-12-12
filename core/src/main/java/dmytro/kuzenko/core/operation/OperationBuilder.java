@@ -30,9 +30,6 @@ public class OperationBuilder {
         operations.put("rmvrw", OperationRemoveRow.class);
         operations.put("drpdb", OperationDropDatabase.class);
         operations.put("swtbl", OperationShowTable.class);
-        operations.put("untbl", OperationUnionTables.class);
-        operations.put("dftbl", OperationDifferenceTables.class);
-        operations.put("uqtbl", OperationUniqueTable.class);
         operations.put("dctbl", OperationDescartTables.class);
     }
     

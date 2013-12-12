@@ -103,44 +103,6 @@ public class DatabaseHandlerTest {
     }
     
     @Test
-    public void unionTablesTest() throws Exception{
-        Table unionTable = handler.unionTable("table1", "table2");
-        List<Row> rows = handler.loadTableData(unionTable.getName());
-        assertEquals(3, rows.size());
-        String[][] rowDataActual = {{"10","a"},{"20","b"},{"30","c"}};
-        for(int i=0;i<rows.size();i++){
-            for(int j=0;j<unionTable.columnTypes().size();j++){
-                assertEquals(rowDataActual[i][j], rows.get(i).getElement(j).getValue());
-            }
-        }
-    }
-
-    @Test
-    public void differenceTableTest() throws Exception{
-        Table differenceTable = handler.differenceTable("table1", "table2");
-        List<Row> rows = handler.loadTableData(differenceTable.getName());
-        assertEquals(1, rows.size());
-        Row row = rows.get(0);
-        String[] rowDataActual = {"10","a"};
-        for(int i=0;i<differenceTable.columnTypes().size();i++){
-            assertEquals(rowDataActual[i], row.getElement(i).getValue());
-        }
-    }
-    
-    @Test
-    public void uniqueTableTest() throws Exception{
-        Table uniqueTable = handler.uniqueTable("table2");
-        List<Row> rows = handler.loadTableData(uniqueTable.getName());
-        assertEquals(2, rows.size());
-        String[][] rowDataActual = {{"20","b"},{"30","c"}};
-        for(int i=0;i<rows.size();i++){
-            for(int j=0;j<uniqueTable.columnTypes().size();j++){
-                assertEquals(rowDataActual[i][j], rows.get(i).getElement(j).getValue());
-            }
-        }
-    }
-    
-    @Test
     public void descartTableTest() throws Exception {
     	Table descartTable = handler.descartTable("table1", "table2");
         List<Row> rows = handler.loadTableData(descartTable.getName());

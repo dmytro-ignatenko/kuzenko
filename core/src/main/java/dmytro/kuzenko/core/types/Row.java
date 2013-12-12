@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
-public class Row implements Serializable, Comparable {
+public class Row implements Serializable, Comparable<Row> {
     
     private static final long serialVersionUID = 1L;
     
@@ -73,8 +73,7 @@ public class Row implements Serializable, Comparable {
     }
 
 	@Override
-	public int compareTo(Object arg0) {
-		Row other = (Row) arg0;
+	public int compareTo(Row other) {
 		if (this.row.size() < other.row.size()) {
 			return -1;
 		}

@@ -84,25 +84,6 @@ public class WebServiceDatabaseManager implements DatabaseHandler {
         return Arrays.asList(result);
     }
 
-    @Override
-    public Table unionTable(String tableName1, String tableName2) throws Exception {
-        return restTemplate.getForObject(
-            SERVICE_URL + "/table/" + tableName1 + "/union/" + tableName2, Table.class, Collections.emptyMap()
-        );
-    }
-
-    @Override
-    public Table differenceTable(String tableName1, String tableName2) throws Exception {
-        return restTemplate.getForObject(
-            SERVICE_URL + "/table/" + tableName1 + "/difference/" + tableName2, Table.class, Collections.emptyMap()
-        );
-    }
-
-    @Override
-    public Table uniqueTable(String tableName) throws Exception {
-        return restTemplate.getForObject(SERVICE_URL + "/table/" + tableName + "/unique", Table.class, Collections.emptyMap());
-    }
-
     public void setRestTemplate(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }

@@ -12,7 +12,7 @@ public class TypeIntInterval extends Type implements Serializable {
     
     public boolean isValid(String val){
         try{
-            int i = val.indexOf("-");
+            int i = val.indexOf("-", 1);
             if(i == -1) return false;
             Integer.parseInt(val.substring(0,i));
             Integer.parseInt(val.substring(i+1,val.length()));

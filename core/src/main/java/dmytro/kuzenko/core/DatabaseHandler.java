@@ -30,12 +30,6 @@ public interface DatabaseHandler extends Remote {
     String getDatabaseName() throws RemoteException;
 
     List<Row> loadTableData(String tableName) throws IOException;
-
-    Table unionTable(String tableName1, String tableName2) throws Exception;
-
-    Table differenceTable(String tableName1, String tableName2) throws Exception;
-
-    Table uniqueTable(String tableName) throws Exception;
     
     Table descartTable(String tableName1, String tableName2) throws Exception;
 }
