@@ -8,6 +8,8 @@ include 'rmi-server'
 include 'iiop-client'
 include 'iiop-server'
 
+include 'corba-server'
+
 include 'webservice-server'
 include 'webservice-client'
 
