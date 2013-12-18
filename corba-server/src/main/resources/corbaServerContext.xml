@@ -13,7 +13,7 @@
         <property name="delegate" ref="databaseHandler" />
     </bean>
         
-    <bean name="iiopServerManager" class="dmytro.kuzenko.corba.server.IIOPServerManager">
+    <bean name="corbaServerManager" class="dmytro.kuzenko.corba.server.CORBAServerManager">
         <property name="remoteDatabaseHandler" ref="remoteDatabaseHandler" />
     </bean>
     

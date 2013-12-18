@@ -33,11 +33,16 @@ task rmic(type:Exec) {
 rmic.dependsOn assemble
 rmic.dependsOn rmiDependencies
 
+task rmicIDL(type:Exec) {
+    commandLine 'rmic', '-idl', '-noValueMethods', '-classpath', "build/classes/main/", '-extdirs', "build/install/corba-server/lib/", 'dmytro.kuzenko.corba.server.RemoteDatabaseHandlerImpl'
+}
+rmicIDL.dependsOn rmic
+
 build.dependsOn rmic
 
 apply plugin:'application'
 startScripts {
-    mainClassName = 'dmytro.kuzenko.corba.server.IIOPServerManager'
+    mainClassName = 'dmytro.kuzenko.corba.server.CORBAServerManager'
     classpath.add(files { file("lib/rmic.jar") })
     
     doLast {
@@ -53,6 +58,7 @@ task rmiJar(type: Jar) {
 }
 rmiJar.dependsOn installApp
 rmiJar.dependsOn rmic
+rmiJar.dependsOn rmicIDL
 
 task installRmiApp
 installRmiApp.dependsOn rmiJar
@@ -60,3 +66,4 @@ installRmiApp.dependsOn rmiJar
 task orbd(type:Exec) {
     commandLine 'sh', 'src/main/scripts/orbd', '&'
 }
+

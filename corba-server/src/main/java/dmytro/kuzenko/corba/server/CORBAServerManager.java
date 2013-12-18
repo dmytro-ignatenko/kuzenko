@@ -18,14 +18,14 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class IIOPServerManager {
+public class CORBAServerManager {
     
     private RemoteDatabaseHandlerImpl remoteDatabaseHandler;
     
     @SuppressWarnings("resource")
     public static void main(String[] args) throws BeansException, Exception {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("iiopServerContext.xml");
-        applicationContext.getBean(IIOPServerManager.class).start(args);
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("corbaServerContext.xml");
+        applicationContext.getBean(CORBAServerManager.class).start(args);
     }
     
     public void start(String[] args) throws Exception {
