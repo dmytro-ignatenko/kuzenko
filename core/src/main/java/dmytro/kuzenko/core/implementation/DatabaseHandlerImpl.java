@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -164,7 +163,9 @@ public class DatabaseHandlerImpl implements DatabaseHandler {
         
         Collection<Table> result = new ArrayList<Table>();
         for(String dir : dirList){
-            result.add(loadTable(dir));
+        	if (dir.matches("home") == false && dir.matches(".DS_Store") == false) {
+        		result.add(loadTable(dir));
+        	}
         }
         
         return result;

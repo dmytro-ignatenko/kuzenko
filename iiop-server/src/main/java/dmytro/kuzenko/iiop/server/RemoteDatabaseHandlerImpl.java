@@ -11,11 +11,11 @@ import dmytro.kuzenko.core.DatabaseHandler;
 import dmytro.kuzenko.core.types.Row;
 import dmytro.kuzenko.core.types.Table;
 
-public class RemoteDatabaseManagerImpl extends PortableRemoteObject implements DatabaseHandler {
+public class RemoteDatabaseHandlerImpl extends PortableRemoteObject implements DatabaseHandler {
     
     private DatabaseHandler delegate;
 
-    protected RemoteDatabaseManagerImpl() throws RemoteException {
+    protected RemoteDatabaseHandlerImpl() throws RemoteException {
         super();
     }
 

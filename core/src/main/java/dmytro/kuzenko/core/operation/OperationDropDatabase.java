@@ -7,16 +7,16 @@ import dmytro.kuzenko.core.OperationHandler;
 
 public class OperationDropDatabase implements Operation {
 
-    private DatabaseHandler databaseManager;
+    private DatabaseHandler databaseHandler;
     
-    public void setState(Map<String,String> parameters, DatabaseHandler databaseManager){
-        this.databaseManager = databaseManager;
+    public void setState(Map<String,String> parameters, DatabaseHandler databaseHandler){
+        this.databaseHandler = databaseHandler;
     }
     
     @Override
     public void execute(OperationHandler ioManager ) throws Exception {
-        databaseManager.dropDatabase();
-        ioManager.outputDatabaseDropped(databaseManager.getDatabaseName());
+        databaseHandler.dropDatabase();
+        ioManager.outputDatabaseDropped(databaseHandler.getDatabaseName());
     }
 
 }

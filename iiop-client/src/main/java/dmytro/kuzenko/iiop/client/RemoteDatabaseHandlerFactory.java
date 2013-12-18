@@ -8,9 +8,9 @@ import org.springframework.util.Assert;
 
 import dmytro.kuzenko.core.DatabaseHandler;
 
-public class RemoteDatabaseManagerFactory {
+public class RemoteDatabaseHandlerFactory {
     
-    public DatabaseHandler locateRemoteDatabaseManager() throws Exception {
+    public DatabaseHandler locateRemoteDatabaseHandler() throws Exception {
         Context ic = new InitialContext();
         
         Object objref = ic.lookup("DatabaseService");

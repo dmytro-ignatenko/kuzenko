@@ -11,21 +11,21 @@ import dmytro.kuzenko.core.types.Value;
 
 public abstract class OperationHandler {
     
-    protected abstract Operation getNextCommand() throws Exception;
+    protected abstract Operation getNextOperation() throws Exception;
     
-    protected abstract boolean hasMoreCommands();
+    protected abstract boolean hasMoreOperations();
     
     protected abstract void outputMessage(String message);
 
     protected abstract void outputResult(String message);
     
     public void start() {
-        while (hasMoreCommands()) {
+        while (hasMoreOperations()) {
             try {
-                Operation command = getNextCommand();
+                Operation operation = getNextOperation();
                 
-                if (command != null) {
-                    command.execute(this);
+                if (operation != null) {
+                    operation.execute(this);
                 }
             } catch (Exception e) {
                 outputError(e);

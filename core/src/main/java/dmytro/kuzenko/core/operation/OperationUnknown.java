@@ -7,7 +7,7 @@ import dmytro.kuzenko.core.OperationHandler;
 
 public class OperationUnknown implements Operation {
 
-    public void setState(Map<String,String> parameters, DatabaseHandler databaseManager) { }
+    public void setState(Map<String,String> parameters, DatabaseHandler databaseHandler) { }
     
     @Override
     public void execute(OperationHandler ioManager) throws Exception {

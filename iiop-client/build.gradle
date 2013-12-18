@@ -20,7 +20,7 @@ repositories {
 
 apply plugin:'application'
 startScripts {
-    mainClassName = "cyberwaste.kuzoff.iiop.client.IIOPClientManager"
+    mainClassName = "dmytro.kuzenko.iiop.client.IIOPClientManager"
     classpath.add(files { file("lib/rmic.jar") })
     
     doLast {

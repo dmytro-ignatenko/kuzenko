@@ -92,24 +92,6 @@ public class WebServiceDatabaseManagerFacade implements DatabaseHandler {
         return delegate.loadTableData(tableName);
     }
 
-    @Override
-    @RequestMapping(value="/table/{tableName1}/union/{tableName2}", method=RequestMethod.GET, produces="application/json")
-    public @ResponseBody Table unionTable(@PathVariable("tableName1") String tableName1, @PathVariable("tableName2") String tableName2) throws Exception {
-        return delegate.unionTable(tableName1, tableName2);
-    }
-
-    @Override
-    @RequestMapping(value="/table/{tableName1}/difference/{tableName2}", method=RequestMethod.GET, produces="application/json")
-    public @ResponseBody Table differenceTable(@PathVariable("tableName1") String tableName1, @PathVariable("tableName2") String tableName2) throws Exception {
-        return delegate.differenceTable(tableName1, tableName2);
-    }
-
-    @Override
-    @RequestMapping(value="/table/{tableName}/unique", method=RequestMethod.GET, produces="application/json")
-    public @ResponseBody Table uniqueTable(@PathVariable("tableName") String tableName) throws Exception {
-        return delegate.uniqueTable(tableName);
-    }
-    
     public void setDelegate(DatabaseHandler delegate) {
         this.delegate = delegate;
     }

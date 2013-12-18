@@ -11,12 +11,12 @@
     
     <managed-bean>
         <managed-bean-name>mainView</managed-bean-name>
-        <managed-bean-class>cyberwaste.kuzoff.web.jsf.MainView</managed-bean-class>
+        <managed-bean-class>dmytro.kuzenko.web.jsf.MainView</managed-bean-class>
         <managed-bean-scope>view</managed-bean-scope>
         
         <managed-property>
-            <property-name>databaseManager</property-name>
-            <value>#{databaseManager}</value>
+            <property-name>databaseHandler</property-name>
+            <value>#{databaseHandler}</value>
         </managed-property>
     </managed-bean>
     

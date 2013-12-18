@@ -1,4 +1,4 @@
-package cyberwaste.kuzoff.rmi.client;
+package dmytro.kuzenko.rmi.client;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

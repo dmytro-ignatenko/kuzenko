@@ -1,4 +1,4 @@
-package cyberwaste.kuzoff.web.jsf;
+package dmytro.kuzenko.web.jsf;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,13 +8,13 @@ import java.util.Collections;
 import java.util.List;
 
 import dmytro.kuzenko.core.DatabaseHandler;
-import dmytro.kuzenko.core.implementation.DatabaseManagerImpl;
+import dmytro.kuzenko.core.implementation.DatabaseHandlerImpl;
 import dmytro.kuzenko.core.types.Row;
 import dmytro.kuzenko.core.types.Table;
 
 public class MainView {
 
-    private DatabaseHandler databaseManager;
+    private DatabaseHandler databaseHandler;
     
     private String database;
     private String table;
@@ -48,7 +48,7 @@ public class MainView {
 
     public List<String> getDatabases() {
         List<String> databases = new ArrayList<String>();
-        for (File databaseFolder : DatabaseManagerImpl.KUZOFF_HOME.listFiles()) {
+        for (File databaseFolder : DatabaseHandlerImpl.KUZENKO_HOME.listFiles()) {
             databases.add(databaseFolder.getName());
         }
         return databases;
@@ -56,9 +56,9 @@ public class MainView {
     
     public Collection<String> getTables() throws IOException {
         try {
-            databaseManager.forDatabaseFolder(database);
+            databaseHandler.forDatabaseFolder(database);
             Collection<String> tables = new ArrayList<String>();
-            for (Table table : databaseManager.listTables()) {
+            for (Table table : databaseHandler.listTables()) {
                 tables.add(table.getName());
             }
             return tables;
@@ -69,8 +69,8 @@ public class MainView {
     
     public List<Row> getData() throws IOException {
         try {
-            databaseManager.forDatabaseFolder(database);
-            return databaseManager.loadTableData(table);
+            databaseHandler.forDatabaseFolder(database);
+            return databaseHandler.loadTableData(table);
         } catch (Exception e) {
             return Collections.emptyList();
         }
@@ -78,8 +78,8 @@ public class MainView {
     
     public List<String> getColumnTypeNames() throws IOException {
         try {
-            databaseManager.forDatabaseFolder(database);
-            return databaseManager.loadTable(table).getColumnTypeNames();
+            databaseHandler.forDatabaseFolder(database);
+            return databaseHandler.loadTable(table).getColumnTypeNames();
         } catch (Exception e) {
             return Collections.emptyList();
         }
@@ -95,33 +95,23 @@ public class MainView {
   
     public void addRow() {
         try {
-            databaseManager.forDatabaseFolder(database);
-            databaseManager.addRow(table, newRow);
+            databaseHandler.forDatabaseFolder(database);
+            databaseHandler.addRow(table, newRow);
             resetNewRow();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     } 
     
-    public void union() {
+    public void descart() {
         try {
-            databaseManager.forDatabaseFolder(database);
-            Table result = databaseManager.unionTable(table, tableForOperation);
+            databaseHandler.forDatabaseFolder(database);
+            Table result = databaseHandler.descartTable(table, tableForOperation);
             setTable(result.getName());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     } 
-    
-    public void diff() {
-        try {
-            databaseManager.forDatabaseFolder(database);
-            Table result = databaseManager.differenceTable(table, tableForOperation);
-            setTable(result.getName());
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     private List<String> resetNewRow() throws IOException {
         newRow  = new ArrayList<String>();
@@ -131,7 +121,7 @@ public class MainView {
         return newRow;
     }
     
-    public void setDatabaseManager(DatabaseHandler databaseManager) {
-        this.databaseManager = databaseManager;
+    public void setDatabaseHandler(DatabaseHandler databaseHandler) {
+        this.databaseHandler = databaseHandler;
     }
 }

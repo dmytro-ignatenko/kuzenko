@@ -8,13 +8,13 @@
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
         
     <bean
-        name="databaseManager"
+        name="databaseHandler"
         class="org.springframework.remoting.rmi.RmiProxyFactoryBean"
-        p:serviceUrl="rmi://localhost/DatabaseManager"
-        p:serviceInterface="cyberwaste.kuzoff.core.DatabaseManager" />
+        p:serviceUrl="rmi://localhost/DatabaseHandler"
+        p:serviceInterface="dmytro.kuzenko.core.DatabaseHandler" />
         
-    <bean name="rmiClient" class="cyberwaste.kuzoff.rmi.client.RmiClientManager">
-        <property name="databaseManager" ref="databaseManager" />
+    <bean name="rmiClient" class="dmytro.kuzenko.rmi.client.RmiClientManager">
+        <property name="databaseHandler" ref="databaseHandler" />
     </bean>
     
 </beans>

@@ -7,7 +7,7 @@
     
     <h:head>
         <title>
-            kuzoff
+            kuzenko
         </title>
     </h:head>
     
@@ -70,19 +70,12 @@
                 actionListener="#{mainView.addRow}" ajax="true" /> 
                 
             <br/>
-            
             <p:commandButton 
-                value="UNION WITH"
-                actionListener="#{mainView.union}" ajax="true" 
-                update="tables tables-for-operation table new-row" />  
-            
-            <p:commandButton 
-                value="DIFFERENCE WITH" 
-                actionListener="#{mainView.diff}" ajax="true" 
-                update="tables tables-for-operation table new-row" /> 
-                        
-            <br/>
-            
+                value="DESCART WITH"
+                actionListener="#{mainView.descart}" ajax="true" 
+                update="tables tables-for-operation table new-row" />
+                                   
+            <br/>             
             <p:selectOneMenu id="tables-for-operation" value="#{mainView.tableForOperation}"> 
                 <f:selectItem itemLabel="Select table" itemValue="" />
                 <f:selectItems value="#{mainView.tables}" />  

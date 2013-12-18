@@ -12,7 +12,7 @@ public class OperationBuilder {
     
     private final String operationName;
     
-    private DatabaseHandler databaseManager;
+    private DatabaseHandler databaseHandler;
     private Map<String, String> parameters;
     private Map<String, Class<?>> operations;
 
@@ -33,13 +33,13 @@ public class OperationBuilder {
         operations.put("dctbl", OperationDescartTables.class);
     }
     
-    public OperationBuilder usingDatabaseManager(DatabaseHandler databaseManager) {
-        this.databaseManager = databaseManager;
+    public OperationBuilder usingDatabaseManager(DatabaseHandler databaseHandler) {
+        this.databaseHandler = databaseHandler;
         return this;
     }
 
     public OperationBuilder forDatabase(String databaseFolder) throws RemoteException {
-        this.databaseManager.forDatabaseFolder(databaseFolder);
+        this.databaseHandler.forDatabaseFolder(databaseFolder);
         return this;
     }
 
@@ -49,15 +49,15 @@ public class OperationBuilder {
     }
 
     public Operation build() throws Exception {
-        if (databaseManager.getDatabaseName() == null) {
+        if (databaseHandler.getDatabaseName() == null) {
             throw new RuntimeException("Database folder is not specified");
         }
         
         if(operations.containsKey(operationName)){
-            Class<?> commandClass = operations.get(operationName);
-            Operation command = (Operation) commandClass.newInstance();
-            command.setState(parameters, databaseManager);
-            return command;
+            Class<?> operationClass = operations.get(operationName);
+            Operation operation = (Operation) operationClass.newInstance();
+            operation.setState(parameters, databaseHandler);
+            return operation;
         }
         else{
             return new OperationUnknown();

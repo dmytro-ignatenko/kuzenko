@@ -19,7 +19,7 @@ import dmytro.kuzenko.core.types.Row;
 import dmytro.kuzenko.core.types.Table;
 import dmytro.kuzenko.core.types.Type;
 
-//@Ignore
+@Ignore
 public class DatabaseHandlerTest {
     
     private DatabaseHandlerImpl handler;

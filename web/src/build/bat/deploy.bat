@@ -8,7 +8,7 @@ echo CATALINA_HOME=["%CATALINA_HOME%"]
 
 call "%CATALINA_HOME%\bin\shutdown.bat"
 
-rd /S /Q "%CATALINA_HOME%\webapps\kuzoff"
-del /F /Q "%CATALINA_HOME%\webapps\kuzoff.war"
+rd /S /Q "%CATALINA_HOME%\webapps\kuzenko"
+del /F /Q "%CATALINA_HOME%\webapps\kuzenko.war"
 
-copy build\libs\kuzoff.war "%CATALINA_HOME%\webapps"
+copy build\libs\kuzenko.war "%CATALINA_HOME%\webapps"

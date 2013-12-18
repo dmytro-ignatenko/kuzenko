@@ -21,7 +21,7 @@ dependencies {
 apply plugin: 'war'
 
 war {
-    archiveName 'kuzoff.war'
+    archiveName 'kuzenko.war'
 }
 
 repositories {

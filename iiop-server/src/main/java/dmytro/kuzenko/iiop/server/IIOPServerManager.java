@@ -20,7 +20,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class IIOPServerManager {
     
-    private RemoteDatabaseManagerImpl remoteDatabaseManager;
+    private RemoteDatabaseHandlerImpl remoteDatabaseHandler;
     
     @SuppressWarnings("resource")
     public static void main(String[] args) throws BeansException, Exception {
@@ -44,7 +44,7 @@ public class IIOPServerManager {
         POA tPOA = rootPOA.create_POA("MyTransientPOA", null, tpolicy);
         
         tPOA.the_POAManager().activate();
-        Tie tie = (Tie) Util.getTie(remoteDatabaseManager);
+        Tie tie = (Tie) Util.getTie(remoteDatabaseHandler);
         byte[] id = "db".getBytes();
         tPOA.activate_object_with_id(id, (Servant) tie);
             
@@ -55,7 +55,7 @@ public class IIOPServerManager {
         orb.run();
     }
     
-    public void setRemoteDatabaseManager(RemoteDatabaseManagerImpl remoteDatabaseManager) {
-        this.remoteDatabaseManager = remoteDatabaseManager;
+    public void setRemoteDatabaseHandler(RemoteDatabaseHandlerImpl remoteDatabaseHandler) {
+        this.remoteDatabaseHandler = remoteDatabaseHandler;
     }
 }

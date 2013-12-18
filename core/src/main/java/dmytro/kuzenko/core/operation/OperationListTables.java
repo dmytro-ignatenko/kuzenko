@@ -10,10 +10,10 @@ import dmytro.kuzenko.core.types.Table;
 public class OperationListTables implements Operation {
     
     private Map<String,String> parameters;
-    private DatabaseHandler databaseManager;
+    private DatabaseHandler databaseHandler;
     
-    public void setState(Map<String,String> parameters, DatabaseHandler databaseManager){
-        this.databaseManager = databaseManager;
+    public void setState(Map<String,String> parameters, DatabaseHandler databaseHandler){
+        this.databaseHandler = databaseHandler;
         this.parameters = parameters;
     }
     
@@ -22,10 +22,10 @@ public class OperationListTables implements Operation {
         final String tableName = OperationBuilder.getStringParameter(parameters, "name");
         
         if (tableName != null) {
-            Table result = databaseManager.loadTable(tableName);
+            Table result = databaseHandler.loadTable(tableName);
             ioManager.outputTableInfo(result);
         } else {
-            Collection<Table> result = databaseManager.listTables();
+            Collection<Table> result = databaseHandler.listTables();
             ioManager.outputListTables(result);
         }
 

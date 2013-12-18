@@ -47,7 +47,7 @@ public class ShellManager extends OperationHandler {
     protected ShellManager() throws JSAPException {
         this.reader = new BufferedReader(new InputStreamReader(System.in));
         this.jsap = new SimpleJSAP(
-            "kuzoff",
+            "kuzenko",
             "",
             new Parameter[] {
                 new FlaggedOption(DATABASE_FOLDER_OPTION)
@@ -66,7 +66,7 @@ public class ShellManager extends OperationHandler {
     }
     
     @Override
-    protected Operation getNextCommand() throws Exception {
+    protected Operation getNextOperation() throws Exception {
         String nextCommandAsString = reader.readLine();
         
         if (EXIT_COMMAND.equals(nextCommandAsString)) {
@@ -93,7 +93,7 @@ public class ShellManager extends OperationHandler {
     }
 
     @Override
-    protected boolean hasMoreCommands() {
+    protected boolean hasMoreOperations() {
         return hasMoreCommands;
     }
     

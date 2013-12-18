@@ -9,10 +9,10 @@
         
     <bean
         class="org.springframework.remoting.rmi.RmiServiceExporter"
-        p:service-ref="databaseManager"
-        p:serviceName="DatabaseManager"
-        p:serviceInterface="cyberwaste.kuzoff.core.DatabaseManager" />
+        p:service-ref="databaseHandler"
+        p:serviceName="DatabaseHandler"
+        p:serviceInterface="dmytro.kuzenko.core.DatabaseHandler" />
     
-    <bean name="databaseManager" class="cyberwaste.kuzoff.core.impl.DatabaseManagerImpl" />
+    <bean name="databaseHandler" class="dmytro.kuzenko.core.implementation.DatabaseHandlerImpl" />
     
 </beans>

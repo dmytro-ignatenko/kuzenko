@@ -18,4 +18,4 @@ repositories {
 }
 
 apply plugin:'application'
-mainClassName = "cyberwaste.kuzoff.rmi.server.RmiServerManager"
+mainClassName = "dmytro.kuzenko.rmi.server.RmiServerManager"

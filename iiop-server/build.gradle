@@ -28,7 +28,7 @@ task rmiDependencies(type: Sync) {
 rmiDependencies.dependsOn rmiPrepare
 
 task rmic(type:Exec) {
-    commandLine 'rmic', '-poa', '-iiop', '-d', "$buildDir/rmic/", '-classpath', "$buildDir/libs/*:$buildDir/rmi-dependencies/*", 'cyberwaste.kuzoff.iiop.server.RemoteDatabaseManagerImpl'
+    commandLine 'rmic', '-poa', '-iiop', '-d', "$buildDir/rmic/", '-classpath', "$buildDir/libs/*:$buildDir/rmi-dependencies/*", 'dmytro.kuzenko.iiop.server.RemoteDatabaseHandlerImpl'
 }
 rmic.dependsOn assemble
 rmic.dependsOn rmiDependencies
@@ -37,7 +37,7 @@ build.dependsOn rmic
 
 apply plugin:'application'
 startScripts {
-    mainClassName = 'cyberwaste.kuzoff.iiop.server.IIOPServerManager'
+    mainClassName = 'dmytro.kuzenko.iiop.server.IIOPServerManager'
     classpath.add(files { file("lib/rmic.jar") })
     
     doLast {

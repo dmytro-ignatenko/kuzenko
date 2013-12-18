@@ -8,17 +8,17 @@ import dmytro.kuzenko.core.OperationHandler;
 public class OperationRemoveTable implements Operation {
 
     private Map<String,String> parameters;
-    private DatabaseHandler databaseManager;
+    private DatabaseHandler databaseHandler;
     
-    public void setState(Map<String,String> parameters, DatabaseHandler databaseManager){
-        this.databaseManager = databaseManager;
+    public void setState(Map<String,String> parameters, DatabaseHandler databaseHandler){
+        this.databaseHandler = databaseHandler;
         this.parameters = parameters;
     }
     
     @Override
     public void execute(OperationHandler ioManager) throws Exception {
         final String tableName = OperationBuilder.getStringParameter(parameters, "name");
-        databaseManager.removeTable(tableName);
+        databaseHandler.removeTable(tableName);
         ioManager.outputTableRemoved(tableName);
     }
 
