@@ -1,19 +1,20 @@
-package dmytro.kuzenko.iiop.client;
+package dmytro.kuzenko.corba.info;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 
+import org.omg.CORBA.Object;
 import org.springframework.util.Assert;
 
 import dmytro.kuzenko.core.DatabaseHandler;
 
-public class RemoteDatabaseHandlerFactory {
+public class databaseHandlerHelper {
     
     public DatabaseHandler locateRemoteDatabaseHandler() throws Exception {
         Context ic = new InitialContext();
         
-        Object objref = ic.lookup("DatabaseService");
+        Object objref = (Object) ic.lookup("DatabaseService");
         Assert.notNull(objref);
         
         DatabaseHandler databaseHandler = (DatabaseHandler) PortableRemoteObject.narrow(objref, DatabaseHandler.class);
@@ -21,4 +22,9 @@ public class RemoteDatabaseHandlerFactory {
         
         return databaseHandler;
     }
+
+	public static DatabaseHandler narrow(Object resolve_str,
+			Class<DatabaseHandler> class1) throws Exception {
+		return null;
+	}
 }

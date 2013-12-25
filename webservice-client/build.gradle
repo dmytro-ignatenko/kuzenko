@@ -24,4 +24,4 @@ repositories {
 }
 
 apply plugin:'application'
-mainClassName = "cyberwaste.kuzoff.ws.client.WebServiceClientManager"
+mainClassName = "dmytro.kuzenko.ws.client.WebServiceClientManager"

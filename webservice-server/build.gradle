@@ -23,7 +23,7 @@ repositories {
 apply plugin: 'war'
 
 war {
-    archiveName 'kuzoff-ws.war'
+    archiveName 'kuzenko-ws.war'
 }
 
 task deploy(type:Exec) {

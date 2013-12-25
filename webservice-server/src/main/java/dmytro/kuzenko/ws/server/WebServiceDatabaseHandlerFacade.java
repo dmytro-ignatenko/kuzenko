@@ -1,4 +1,4 @@
-package cyberwaste.kuzoff.ws.server;
+package dmytro.kuzenko.ws.server;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
@@ -21,7 +21,7 @@ import dmytro.kuzenko.core.types.Table;
 
 @Controller
 @RequestMapping("/api")
-public class WebServiceDatabaseManagerFacade implements DatabaseHandler {
+public class WebServiceDatabaseHandlerFacade implements DatabaseHandler {
     
     @Autowired
     private DatabaseHandler delegate;

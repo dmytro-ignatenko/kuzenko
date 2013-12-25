@@ -7,14 +7,14 @@
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
         
-    <bean name="databaseManager" class="cyberwaste.kuzoff.ws.client.WebServiceDatabaseManager">
+    <bean name="databaseHandler" class="dmytro.kuzenko.ws.client.WebServiceDatabaseHandler">
         <property name="restTemplate" ref="restTemplate" />
     </bean>
     
     <bean name="restTemplate" class="org.springframework.web.client.RestTemplate" />
         
-    <bean name="wsClient" class="cyberwaste.kuzoff.ws.client.WebServiceClientManager">
-        <property name="databaseManager" ref="databaseManager" />
+    <bean name="wsClient" class="dmytro.kuzenko.ws.client.WebServiceClientManager">
+        <property name="databaseHandler" ref="databaseHandler" />
     </bean>
     
 </beans>

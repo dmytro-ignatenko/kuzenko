@@ -24,7 +24,7 @@ public class TypeTextFile extends Type implements Serializable {
         try {
             return FileUtils.readFileToString(new File(val));
         } catch (IOException e) {
-            return "NOT ACCESIBLE";
+            return val;
         }
     }
     

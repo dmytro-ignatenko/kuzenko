@@ -8,7 +8,7 @@ echo "CATALINA_HOME=[$CATALINA_HOME]"
 
 sh "$CATALINA_HOME/bin/shutdown.sh"
 
-rm -rf "$CATALINA_HOME/webapps/kuzoff-ws"
-rm "$CATALINA_HOME/webapps/kuzoff-ws.war"
+rm -rf "$CATALINA_HOME/webapps/kuzenko-ws"
+rm "$CATALINA_HOME/webapps/kuzenko-ws.war"
 
-cp build/libs/kuzoff-ws.war "$CATALINA_HOME/webapps"
+cp build/libs/kuzenko-ws.war "$CATALINA_HOME/webapps"

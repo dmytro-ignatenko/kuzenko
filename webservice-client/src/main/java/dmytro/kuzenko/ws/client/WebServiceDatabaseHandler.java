@@ -1,4 +1,4 @@
-package cyberwaste.kuzoff.ws.client;
+package dmytro.kuzenko.ws.client;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
@@ -14,9 +14,9 @@ import dmytro.kuzenko.core.DatabaseHandler;
 import dmytro.kuzenko.core.types.Row;
 import dmytro.kuzenko.core.types.Table;
 
-public class WebServiceDatabaseManager implements DatabaseHandler {
+public class WebServiceDatabaseHandler implements DatabaseHandler {
     
-    private final static String SERVICE_URL = "http://localhost:8080/kuzoff-ws/api";
+    private final static String SERVICE_URL = "http://localhost:8080/kuzenko-ws/api";
     
     private RestTemplate restTemplate;
 

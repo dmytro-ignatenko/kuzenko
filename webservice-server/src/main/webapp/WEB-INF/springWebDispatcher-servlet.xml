@@ -11,6 +11,6 @@
     
     <mvc:annotation-driven />
     
-    <context:component-scan base-package="cyberwaste.kuzoff.ws.server" />
+    <context:component-scan base-package="dmytro.kuzenko.ws.server" />
     
 </beans>

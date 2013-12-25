@@ -106,6 +106,12 @@ public class ShellManager extends OperationHandler {
     protected void outputMessage(String message) {
         System.err.println(message);
     }
+    
+    public static void setDatabaseHandlerImpl(DatabaseHandler databaseHandler) {
+    	if (databaseHandler != null) {
+    		System.out.println("Cool!");
+    	}
+    }
 
     private static Map<String, String> parseParameters(String parametersAsString) throws IOException {
         Properties properties = new Properties();
