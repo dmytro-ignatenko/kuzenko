@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Database</string>
+    <string name="action_settings">Settings</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+    <string name="title_activity_display_message">My Message</string>
+    <string name="title_activity_table">TableActivity</string>
+    <string name="list_tables">List Tables</string>
+    <string name="create_table">Create Table</string>
+    <string name="add_row">Add Row</string>
+    <string name="descart">Descart</string>
+    <string name="firstTable">First table name:</string>
+    <string name="operation">Choose operation:</string>
+    <string name="newTable">New table</string>
+    <string name="secondTable">Second tabel name:</string>
+    <string name="resultTable">Result table name:</string>
+    <string name="ok">OK</string>
+
+</resources>

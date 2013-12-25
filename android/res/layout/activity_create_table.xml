@@ -1,0 +1,89 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        
+	    <TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/operation"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+	    
+	    <RadioGroup
+	        android:id="@+id/radioGroup"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content" >
+	
+	        <RadioButton
+	            android:id="@+id/radioNewTable"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:onClick="onRadioClick"
+	            android:text="@string/newTable" />
+	
+	        <RadioButton
+	            android:id="@+id/radioDescart"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:onClick="onRadioClick"
+	            android:text="@string/descart" />
+	
+	    </RadioGroup>
+	    
+	   
+		<TextView
+		    android:id="@+id/firstTableLabel"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/firstTable"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+		 
+		<EditText 
+		    android:id="@+id/table1"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:hint="@string/edit_message" />
+	
+		<TextView
+		    android:id="@+id/secondTableLabel"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/secondTable"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+	     
+	    <EditText 
+	        android:id="@+id/table2"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:hint="@string/edit_message" />
+	    
+	    <TextView
+	        android:id="@+id/resultTableLabel"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/resultTable"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+	     
+	    <EditText 
+	        android:id="@+id/result_table"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:hint="@string/edit_message" />
+
+    </LinearLayout>
+    
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onOkClick"
+        android:text="@string/ok" />
+    
+</LinearLayout>
